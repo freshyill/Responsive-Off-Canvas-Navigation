@@ -1,0 +1,127 @@
+@import "bourbon/bourbon";
+
+$off-canvas-width: 16rem;
+$off-canvas-duration: .3s;
+
+@mixin off-canvas-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 2;
+	overflow-y: auto;
+	width: $off-canvas-width;
+	@include transition($off-canvas-duration);
+  @include transform(translateX(-$off-canvas-width));
+	
+	&.off-canvas-show {
+		@include transform(translateX(0));
+	}
+
+	@media screen and (min-width: 768px) {
+		position: static;
+		display: block;
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		@include transform(translateX(0));
+	}
+}
+
+.page-content,
+.mobile-helper-bar {
+	float: right;
+	width: 100%;
+	@include transition($off-canvas-duration);
+}
+
+.off-canvas-show {
+	~ .page-content {
+		overflow: hidden;
+		@include transform(translateX($off-canvas-width*.5));
+	}
+	~ .mobile-helper-bar {
+		overflow: hidden;
+		@include transform(translateX($off-canvas-width));
+	}
+}
+
+.mobile-helper-bar {
+	background: #ccc;
+	position: fixed;
+	z-index: 1;
+	padding: .5rem 1rem;
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+
+/*  ==========================================================================
+		
+		DEMO THEME
+		
+		These are just separated out to keep the core styles a little bit cleaner.
+		
+    ========================================================================== */
+    
+body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+.nav-primary {
+	background: #333;
+	@include off-canvas-nav;
+	
+	ul {
+		text-align: left;
+		@media screen and (min-width: 768px) {
+			text-align: center;
+		}
+	}
+	
+	li {
+		display: block;
+		padding: .5rem 0;
+		line-height: 1;
+		list-style: none;
+		@media screen and (min-width: 768px) {
+			display: inline-block;
+			padding: .25rem 2rem;
+		}
+	}
+	
+	a {
+		color: #fff;
+		font-family: Avenir, Helvetica Neue, sans-serif;
+		font-weight: bold;
+		text-decoration: none;
+		padding: .5rem 0;
+		display: block;
+	}
+	
+}
+
+.off-canvas-show {
+	box-shadow: 0 0 5px #000;
+}
+
+.page-content {
+	padding: 3rem 1rem;
+	box-sizing: border-box;
+	@media screen and (min-width: 768px) {
+		padding: 3rem;
+	}
+}
+
+.hamburger {
+	background: transparent;
+	color: #fff;
+	font-size: 1.5rem;
+	border: 0;
+	outline: none;
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}

@@ -1,7 +1,15 @@
 @import "bourbon/bourbon";
+//@import "compass/css3";
 
+/*  ==========================================================================
+		CORE STYLES
+		This should work just fine as long as you @include off-canvas-nav in your
+		.nav-primary.
+		========================================================================== */
+		
 $off-canvas-width: 16rem;
 $off-canvas-duration: .3s;
+$canvas-offset: .5;
 
 @mixin off-canvas-nav {
 	position: fixed;
@@ -38,7 +46,7 @@ $off-canvas-duration: .3s;
 .off-canvas-show {
 	~ .page-content {
 		overflow: hidden;
-		@include transform(translateX($off-canvas-width*.5));
+		@include transform(translateX($off-canvas-width*$canvas-offset));
 	}
 	~ .mobile-helper-bar {
 		overflow: hidden;
@@ -57,11 +65,8 @@ $off-canvas-duration: .3s;
 }
 
 /*  ==========================================================================
-		
 		DEMO THEME
-		
 		These are just separated out to keep the core styles a little bit cleaner.
-		
     ========================================================================== */
     
 body {

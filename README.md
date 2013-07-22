@@ -1,6 +1,6 @@
 # Responsive off-canvas nav
 
-Here's a pretty basic responsive off-canvas nav that requires minimal additions to your markup.
+Here's a pretty basic responsive off-canvas nav that requires minimal additions to your markup. I was inspired by [Effeckt.css](https://github.com/h5bp/Effeckt.css), which is nice and all but also far from ready for prime time.
 
 ## Requirements
 

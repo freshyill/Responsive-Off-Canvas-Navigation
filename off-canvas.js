@@ -5,7 +5,6 @@ $('#off-canvas-toggle').click(function() {
 
 
 // Hide the off-canvas nav when clicking a link
-$('#off-canvas-nav').find('a').on('click', function(e) {
-	e.preventDefault;
+$('#nav-primary').find('a').on('click', function(e) {
 	$('#nav-primary').removeClass('off-canvas-show');
 });

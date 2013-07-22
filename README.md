@@ -20,9 +20,13 @@ Moving the main content of your site requires a wrapper element that lives along
 	    <div class="page-content" id="page-content"></div>
     </body>
     
-The `<header class="mobile-helper-bar">` is not required. It's only there to give the toggle button a place to live.
+The `<header class="mobile-helper-bar">` is not required. It's only there to give the toggle button a place to live. You can put this toggle wherever you want.
+
+The provided jQuery does two things: Toggles visibility of the nav element when the toggle button is clicked/tapped and hides the nav when one of the nav items is clicked/tapped.
 
 ## Configuration
+
+The example uses `min-width: 768px` as a breakpoint. You should adjust this for your own needs.
 
 Most of the magic is accomplished with a SASS mixin. The mixin and some additional classes take three variables:
 
